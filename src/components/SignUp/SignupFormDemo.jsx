@@ -1,11 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
 import { TracingBeam } from "../ui/tracing-beam";
 import "/home/realkal/Desktop/project-1/client/src/App.css";
 import axios from "axios";
+import { Toaster, toast } from 'sonner'
 
 export function SignupFormDemo() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export function SignupFormDemo() {
     phone: "",
     password: "",
   });
+  const [response, setResponse] = useState('');
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -30,27 +32,39 @@ export function SignupFormDemo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-
-    try {
-      await axios.post("http://localhost:3000/register", formData);
-      console.log("Form sent to the backend");
-    } catch (err) {
-      console.log(err);
+    const { firstName, middleName, lastName, phone, password } = formData;
+    if(
+      firstName !== "",
+      middleName !== "",
+      lastName !== "",
+      phone !== "",
+      password !== ""
+    ) {
+      try {
+        const res = await axios.post("http://localhost:3000/register", formData);
+        setResponse(res.data.success);
+        console.log("Form sent to the backend");
+        toast.success("User Registered successfully", { className: "text-lg" });
+        setFormData({
+          firstName: "",
+          middleName: "",
+          lastName: "",
+          phone: "",
+          password: "",
+        })
+      } catch (err) {
+        console.log(err);
+        toast.error("Something went wrong", { className: "text-lg" });
+      }
+    } else {
+      toast.info("Fields are empty", { className: "text-lg" });
     }
-
-    // OR
-    // fetch('http://localhost:3000/register' , {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
   };
 
   return (
     <TracingBeam>
       <div className="w-9/12 h-screen mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border-2 border-neutral-500">
+        <Toaster richColors/>
         <h2 className="font-bold text-4xl text-white dark:text-neutral-200">
           Welcome to HMYC
         </h2>
@@ -61,7 +75,7 @@ export function SignupFormDemo() {
 
         <form
           className="my-8"
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           action="http://localhost:3000/register"
           method="POST"
         >
@@ -134,6 +148,7 @@ export function SignupFormDemo() {
           <button
             className="text-lg bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
             type="submit"
+            onClick={handleSubmit}
           >
             Register &rarr;
             <BottomGradient />
