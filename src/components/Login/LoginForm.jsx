@@ -1,18 +1,13 @@
-"use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
-import { TracingBeam } from "../ui/tracing-beam";
 import "/home/realkal/Desktop/project-1/client/src/App.css";
 import axios from "axios";
 import { Toaster, toast } from 'sonner'
 
-export function SignupFormDemo() {
+export function LoginForm() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    middleName: "",
-    lastName: "",
     phone: "",
     password: "",
   });
@@ -32,11 +27,8 @@ export function SignupFormDemo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    const { firstName, middleName, lastName, phone, password } = formData;
+    const { phone, password } = formData;
     if(
-      firstName !== "",
-      middleName !== "",
-      lastName !== "",
       phone !== "",
       password !== ""
     ) {
@@ -44,11 +36,8 @@ export function SignupFormDemo() {
         const res = await axios.post("http://localhost:3000/register", formData);
         setResponse(res.data.success);
         console.log("Form sent to the backend");
-        toast.success("User Registered successfully", { className: "text-lg" });
+        toast.success("User Logged In successfully", { className: "text-lg" });
         setFormData({
-          firstName: "",
-          middleName: "",
-          lastName: "",
           phone: "",
           password: "",
         })
@@ -62,8 +51,7 @@ export function SignupFormDemo() {
   };
 
   return (
-    <TracingBeam>
-      <div className="w-9/12 h-screen mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border-2 border-neutral-500">
+      <div className="w-1/4 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border-2 border-neutral-500">
         <Toaster richColors/>
         <h2 className="font-bold text-4xl text-white dark:text-neutral-200">
           Welcome to HMYC
@@ -75,48 +63,9 @@ export function SignupFormDemo() {
 
         <form
           className="my-8"
-          // onSubmit={handleSubmit}
-          action="http://localhost:3000/register"
+          action="http://localhost:3000/login"
           method="POST"
         >
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-            <LabelInputContainer>
-              <Label htmlFor="firstname">First name</Label>
-              <Input
-                id="firstname"
-                placeholder="Your name"
-                type="text"
-                name="firstName"
-                onChange={handleChange}
-                value={formData.firstName}
-                required
-              />
-            </LabelInputContainer>
-            <LabelInputContainer>
-              <Label htmlFor="middlename">Middle name</Label>
-              <Input
-                id="middlename"
-                placeholder="Your father's name"
-                type="text"
-                name="middleName"
-                onChange={handleChange}
-                value={formData.middleName}
-                required
-              />
-            </LabelInputContainer>
-            <LabelInputContainer>
-              <Label htmlFor="lastname">Last name</Label>
-              <Input
-                id="lastname"
-                placeholder="Your grandpa's name"
-                type="text"
-                name="lastName"
-                onChange={handleChange}
-                value={formData.lastName}
-                required
-              />
-            </LabelInputContainer>
-          </div>
           <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
           <LabelInputContainer className="mb-4">
             <Label htmlFor="phone">Phone Number</Label>
@@ -150,7 +99,7 @@ export function SignupFormDemo() {
             type="submit"
             onClick={handleSubmit}
           >
-            Register &rarr;
+            Login &rarr;
             <BottomGradient />
           </button>
 
@@ -158,7 +107,6 @@ export function SignupFormDemo() {
           {/* <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" /> */}
         </form>
       </div>
-    </TracingBeam>
   );
 }
 
