@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
+import { cn } from "../../lib/utils";
 import { TracingBeam } from "../ui/tracing-beam";
-import "/home/realkal/Desktop/project-1/client/src/App.css";
+import "../../App.css";
 import axios from "axios";
 import { Toaster, toast } from 'sonner'
 

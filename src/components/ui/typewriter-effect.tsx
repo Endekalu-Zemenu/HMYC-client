@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
+import { cn } from "../../lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 

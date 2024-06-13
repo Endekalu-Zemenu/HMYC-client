@@ -7,7 +7,7 @@ import {
   useVelocity,
   useSpring,
 } from "framer-motion";
-import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
+import { cn } from "../../lib/utils";
 
 export const TracingBeam = ({
   children,

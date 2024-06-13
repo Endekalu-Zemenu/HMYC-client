@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { cn } from "/home/realkal/Desktop/project-1/client/src/utils/cn.ts";
-import "/home/realkal/Desktop/project-1/client/src/App.css";
+import { cn } from "../../lib/utils";
+import "../../App.css";
 import axios from "axios";
 import { Toaster, toast } from 'sonner'
 

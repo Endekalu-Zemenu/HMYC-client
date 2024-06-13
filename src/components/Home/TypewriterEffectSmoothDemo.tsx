@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { TypewriterEffectSmooth } from "/home/realkal/Desktop/project-1/client/src/components/ui/typewriter-effect.tsx";
+import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Login from "../buttons/LoginButton";
 import RegisterButton from "../buttons/RegisterButton"
 export function TypewriterEffectSmoothDemo() {
