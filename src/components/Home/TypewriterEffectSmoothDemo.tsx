@@ -49,8 +49,8 @@ export function TypewriterEffectSmoothDemo() {
       </p>
       <TypewriterEffectSmooth words={words} />
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <Login data-className="w-52 h-14"/>
-        <RegisterButton data-className="w-52 h-14"/>
+        <Login data-className="w-40 h-12 font-semibold"/>
+        <RegisterButton data-className="w-40 h-12 font-semibold"/>
       </div>
     </div>
   );

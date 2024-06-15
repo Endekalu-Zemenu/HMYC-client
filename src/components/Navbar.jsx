@@ -13,19 +13,19 @@ const Navbar = () => {
           <Link to="/" element={<HomePage />}>
             <div className="flex items-center flex-shrink-0">
               <img className="h-10 w-10 mr-2" src={logo} alt="logo"/>
-              <span className="text-xl tracking-tight">HMYC</span>
+              <span className="text-4xl tracking-tight font-bold">HMYC</span>
             </div>
           </Link>
-          <ul className="flex ml-14 space-x-12">
+          <ul className="flex ml-14 space-x-12 font-semibold font-mono items-center">
             {navItems.map((item, index) => (
               <li key={index}>
                 <a href={item.href}>{item.label}</a>
               </li>
             ))}
           </ul>
-          <div className="lg:flex justify-center space-x-12 items-center">
-            <LoginButton data-className="h-10 w-32"/>
-            <RegisterButton data-className="h-10 w-32"/>
+          <div className="lg:flex justify-center gap-6 items-center">
+            <LoginButton data-className="h-10 w-32 font-semibold"/>
+            <RegisterButton data-className="h-10 w-32 font-semibold"/>
           </div>
         </div>
       </div>
