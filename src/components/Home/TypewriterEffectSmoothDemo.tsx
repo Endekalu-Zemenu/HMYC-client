@@ -43,7 +43,7 @@ export function TypewriterEffectSmoothDemo() {
     }, 
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-10  ">
+    <div className="flex flex-col items-center justify-center">
       <p className="text-neutral-400 dark:text-neutral-200 text-xl">
         የዮሐንስ ወንጌል 15:13
       </p>

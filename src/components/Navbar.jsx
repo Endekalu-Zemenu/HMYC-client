@@ -16,13 +16,13 @@ const Navbar = () => {
               <span className="text-4xl tracking-tight font-bold">HMYC</span>
             </div>
           </Link>
-          <ul className="flex ml-14 space-x-12 font-semibold font-mono items-center">
+          {/* <ul className="flex ml-14 space-x-12 font-semibold font-mono items-center">
             {navItems.map((item, index) => (
               <li key={index}>
                 <a href={item.href}>{item.label}</a>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <div className="lg:flex justify-center gap-6 items-center">
             <LoginButton data-className="h-10 w-32 font-semibold"/>
             <RegisterButton data-className="h-10 w-32 font-semibold"/>
