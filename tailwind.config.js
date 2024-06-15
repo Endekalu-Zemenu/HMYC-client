@@ -15,6 +15,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {},
+    fontFamily: {
+      customFont: ["Atlantis"]
+    }
     // rest of the code
   },
   plugins: [

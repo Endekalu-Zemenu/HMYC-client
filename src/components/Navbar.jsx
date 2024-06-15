@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import logo from "../assets/logo.png"
-import { navItems } from "../constants/list"
+// import { navItems } from "../constants/list"
 import LoginButton from "./buttons/LoginButton"
 import RegisterButton from "./buttons/RegisterButton"
 import HomePage from "./HomePage"
+import "../App.css"
 
 const Navbar = () => {
   return (
@@ -11,9 +12,9 @@ const Navbar = () => {
       <div className="container px-4 mx-auto relative text-xl">
         <div className="flex justify-between items-center">  
           <Link to="/" element={<HomePage />}>
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center justify-center flex-shrink-0">
               <img className="h-10 w-10 mr-2" src={logo} alt="logo"/>
-              <span className="text-4xl tracking-tight font-bold">HMYC</span>
+              <span className="text-4xl tracking-tight font-bold ">HMYC</span>
             </div>
           </Link>
           {/* <ul className="flex ml-14 space-x-12 font-semibold font-mono items-center">
@@ -24,8 +25,8 @@ const Navbar = () => {
             ))}
           </ul> */}
           <div className="lg:flex justify-center gap-6 items-center">
-            <LoginButton data-className="h-10 w-32 font-semibold"/>
-            <RegisterButton data-className="h-10 w-32 font-semibold"/>
+            <Link to="/login"><LoginButton data-className="h-10 w-32 font-semibold"/></Link>
+            <Link to="/register"><RegisterButton data-className="h-10 w-32 font-semibold"/></Link>
           </div>
         </div>
       </div>

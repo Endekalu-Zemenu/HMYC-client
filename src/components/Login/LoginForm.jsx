@@ -51,14 +51,13 @@ export function LoginForm() {
   };
 
   return (
-      <div className="w-1/4 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border-2 border-neutral-500">
+      <div className="w-1/3 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border-2 border-neutral-500">
         <Toaster richColors/>
         <h2 className="font-bold text-4xl text-white dark:text-neutral-200">
           Welcome to HMYC
         </h2>
         <p className="text-neutral-400 text-base mt-2 dark:text-neutral-300 flex justify-center w-full">
-          Login to aceternity if you can because we don&apos;t have a login flow
-          yet
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, fugiat!
         </p>
 
         <form
@@ -71,7 +70,7 @@ export function LoginForm() {
             <Label htmlFor="phone">Phone Number</Label>
             <Input
               id="phone"
-              placeholder="+25191234567"
+              placeholder=""
               type="phone"
               name="phone"
               onChange={handleChange}
@@ -84,7 +83,7 @@ export function LoginForm() {
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
-              placeholder="123"
+              placeholder=""
               type="password"
               name="password"
               onChange={handleChange}
