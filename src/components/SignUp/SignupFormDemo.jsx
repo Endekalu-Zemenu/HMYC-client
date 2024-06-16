@@ -31,7 +31,6 @@ export function SignupFormDemo() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     const { firstName, middleName, lastName, phone, password } = formData;
     if(
       firstName !== "",
